@@ -1,0 +1,30 @@
+<svg id="home_icon" xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35">
+  <circle id="Ellipse_7" data-name="Ellipse 7" cx="17.5" cy="17.5" r="17.5" fill="#545864"/>
+  <g id="_005-house" data-name="005-house" transform="translate(7 8)">
+    <g id="Group_41" data-name="Group 41" transform="translate(2.346 4.256)">
+      <g id="Group_40" data-name="Group 40">
+        <path id="Path_19" data-name="Path 19" d="M67.865,108.19l-7.694,7.6v7.556a.579.579,0,0,0,.578.585h4.177v-6.528a.585.585,0,0,1,.594-.577h4.69a.579.579,0,0,1,.586.577v6.528h4.1a.579.579,0,0,0,.578-.585v-7.556Zm0,7.461a2.339,2.339,0,1,1,2.345-2.339A2.345,2.345,0,0,1,67.865,115.651Z" transform="translate(-60.171 -108.19)" fill="#fff"/>
+      </g>
+    </g>
+    <g id="Group_43" data-name="Group 43" transform="translate(8.871 8.188)">
+      <g id="Group_42" data-name="Group 42">
+        <path id="Path_20" data-name="Path 20" d="M228.2,209.561a1.17,1.17,0,1,0,1.17,1.17A1.171,1.171,0,0,0,228.2,209.561Z" transform="translate(-227.03 -209.561)" fill="#fff"/>
+      </g>
+    </g>
+    <g id="Group_45" data-name="Group 45" transform="translate(8.324 14.08)">
+      <g id="Group_44" data-name="Group 44">
+        <rect id="Rectangle_14" data-name="Rectangle 14" width="3.509" height="5.92" fill="#fff"/>
+      </g>
+    </g>
+    <g id="Group_47" data-name="Group 47" transform="translate(0 0)">
+      <g id="Group_46" data-name="Group 46">
+        <path id="Path_21" data-name="Path 21" d="M19.872,9.267v0c-.2-.5-5.339-5.524-5.73-5.914L11.283.5A1.8,1.8,0,0,0,8.8.5C8.375.918.339,8.744.128,9.264v0a1.754,1.754,0,0,0,.386,1.9,1.682,1.682,0,0,0,.495.333l8.617-8.52a.587.587,0,0,1,.829,0L19,11.5a1.733,1.733,0,0,0,.876-2.237Z" transform="translate(0 0)" fill="#fff"/>
+      </g>
+    </g>
+    <g id="Group_49" data-name="Group 49" transform="translate(14.16 1.176)">
+      <g id="Group_48" data-name="Group 48">
+        <path id="Path_22" data-name="Path 22" d="M365.125,30.161h-2.339a.561.561,0,0,0-.578.527l3.494,3.5V30.722A.558.558,0,0,0,365.125,30.161Z" transform="translate(-362.208 -30.161)" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>

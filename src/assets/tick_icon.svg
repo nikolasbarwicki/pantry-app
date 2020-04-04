@@ -1,0 +1,14 @@
+<svg id="tick_icon" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25">
+  <g id="Group_133" data-name="Group 133" transform="translate(-407.672 -231.672)">
+    <g id="Group_130" data-name="Group 130" transform="translate(407.672 231.672)">
+      <g id="Ellipse_2" data-name="Ellipse 2" fill="none" stroke="#6e6e6e" stroke-width="1">
+        <circle cx="12.5" cy="12.5" r="12.5" stroke="none"/>
+        <circle cx="12.5" cy="12.5" r="12" fill="none"/>
+      </g>
+      <g id="Group_131" data-name="Group 131" transform="translate(6.263 8.892)">
+        <line id="Line_3" data-name="Line 3" x2="5.077" y2="5.26" transform="translate(0 3.945)" fill="none" stroke="#6e6e6e" stroke-linecap="round" stroke-width="1"/>
+        <line id="Line_4" data-name="Line 4" x1="8.884" y2="9.204" transform="translate(5.077)" fill="none" stroke="#6e6e6e" stroke-linecap="round" stroke-width="1"/>
+      </g>
+    </g>
+  </g>
+</svg>
