@@ -4,6 +4,8 @@ import Theme from 'theme/Theme';
 import styled from 'styled-components';
 import Inventory from 'components/Inventory';
 import Sidebar from 'components/Sidebar';
+import { Provider } from 'react-redux';
+import store from 'store';
 
 const MainWrapper = styled.div`
   display: grid;
@@ -12,13 +14,15 @@ const MainWrapper = styled.div`
 
 const Root = () => {
   return (
-    <Theme>
-      <MainWrapper>
-        <GlobalStyle />
-        <Sidebar />
-        <Inventory />
-      </MainWrapper>
-    </Theme>
+    <Provider store={store}>
+      <Theme>
+        <MainWrapper>
+          <GlobalStyle />
+          <Sidebar />
+          <Inventory />
+        </MainWrapper>
+      </Theme>
+    </Provider>
   );
 };
 

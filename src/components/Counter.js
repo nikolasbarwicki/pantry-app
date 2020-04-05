@@ -37,45 +37,19 @@ const StyledInput = styled.input`
     `}
 `;
 
-class Counter extends React.Component {
-  state = { count: 0 };
-
-  increment = () => this.setState((prevState) => ({ count: prevState.count + 1 }));
-
-  decrement = () => {
-    const { counter } = this.state;
-    return counter.count === 0
-      ? null
-      : this.setState((prevState) => ({ count: prevState.count - 1 }));
-  };
-
-  render() {
-    const { counter } = this.state;
-    const { input } = this.props;
-
-    return (
-      <StyledWrapper>
-        <StyledButton onClick={this.decrement}>-</StyledButton>
-        <StyledInput
-          type="number"
-          value={counter.count}
-          onChange={(e) => this.setState({ count: parseInt(e.target.value, 10) })}
-          transparent={input.transparent}
-        />
-        <StyledButton onClick={this.increment}>+</StyledButton>
-      </StyledWrapper>
-    );
-  }
-}
-
-Counter.propTypes = {
-  transparent: PropTypes.string,
-  input: PropTypes.string,
+const Counter = ({ value, transparent }) => {
+  return (
+    <StyledWrapper>
+      <StyledButton>-</StyledButton>
+      <StyledInput type="number" value={value} transparent={transparent} />
+      <StyledButton>+</StyledButton>
+    </StyledWrapper>
+  );
 };
 
-Counter.defaultProps = {
-  transparent: false,
-  input: null,
+Counter.propTypes = {
+  value: PropTypes.string.isRequired,
+  transparent: PropTypes.bool.isRequired,
 };
 
 export default Counter;

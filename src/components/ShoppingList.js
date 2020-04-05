@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import bellIcon from 'assets/bell_icon.svg';
 import ShoppingListItem from 'components/ShoppingListItem';
@@ -15,34 +17,35 @@ const HeadingWrapper = styled.div`
   justify-content: space-between;
 `;
 
-class ShoppingList extends React.Component {
-  state = [
-    { cat: 'bread', item: 'Bread', qty: 2, min: 1 },
-    { cat: 'fruit', item: 'Bananas', qty: 5, min: 5 },
-    { cat: 'fruit', item: 'Carrots', qty: 1, min: 2 },
-    { cat: 'diary', item: 'Milk', qty: 0, min: 3 },
-    { cat: 'home', item: 'Toilet paper', qty: 0, min: 6 },
-    { cat: 'pantry', item: 'Bread flour', qty: 4, min: 4 },
-  ];
+const ShoppingList = ({ items }) => {
+  return (
+    <div>
+      <HeadingWrapper>
+        <StyledHeading>Shopping list</StyledHeading>
+        <img src={bellIcon} alt="Notification bell icon" />
+      </HeadingWrapper>
+      {items.map((item) => {
+        if (item.qty - item.min < 0) {
+          return (
+            <ShoppingListItem
+              cat={item.cat}
+              item={item.item}
+              buy={item.qty - item.min}
+            />
+          );
+        }
+        return null;
+      })}
+    </div>
+  );
+};
 
-  render() {
-    const { items } = this.state;
+const mapStateToProps = (state) => {
+  return state;
+};
 
-    return (
-      <div>
-        <HeadingWrapper>
-          <StyledHeading>Shopping list</StyledHeading>
-          <img src={bellIcon} alt="Notification bell icon" />
-        </HeadingWrapper>
-        {items.map((item) => {
-          if (item.qty - item.min < 0) {
-            return <ShoppingListItem cat={item.cat} item={item.item} buy={item.qty - item.min} />;
-          }
-          return null;
-        })}
-      </div>
-    );
-  }
-}
+ShoppingList.propTypes = {
+  items: PropTypes.string.isRequired,
+};
 
-export default ShoppingList;
+export default connect(mapStateToProps)(ShoppingList);

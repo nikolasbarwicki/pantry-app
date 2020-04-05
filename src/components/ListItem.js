@@ -6,6 +6,8 @@ import ListText from 'components/ListText';
 import Counter from 'components/Counter';
 import Icon from 'components/Icon';
 import ButtonIcon from 'components/ButtonIcon';
+import { connect } from 'react-redux';
+import { deleteItem as deleteItemAction } from 'actions';
 
 import deleteIcon from 'assets/delete_icon.svg';
 
@@ -33,7 +35,7 @@ const categories = {
   pantry: 'Pantry',
 };
 
-const ListItem = ({ cat, item, qty, min }) => {
+const ListItem = ({ cat, item, qty, min, deleteItem }) => {
   return (
     <StyledWrapper>
       <Icon iconType={cat} />
@@ -46,7 +48,7 @@ const ListItem = ({ cat, item, qty, min }) => {
       <ListText bold color={qty - min > 0 ? 'green' : 'red'}>
         {qty - min > 0 ? `+${qty - min}` : qty - min}
       </ListText>
-      <ButtonIcon icon={deleteIcon} />
+      <ButtonIcon icon={deleteIcon} onClick={() => deleteItem(item)} />
     </StyledWrapper>
   );
 };
@@ -56,6 +58,11 @@ ListItem.propTypes = {
   item: PropTypes.string.isRequired,
   qty: PropTypes.number.isRequired,
   min: PropTypes.number.isRequired,
+  deleteItem: PropTypes.string.isRequired,
 };
 
-export default ListItem;
+const mapDispatchToProps = (dispatch) => ({
+  deleteItem: (item) => dispatch(deleteItemAction(item)),
+});
+
+export default connect(null, mapDispatchToProps)(ListItem);
