@@ -43,8 +43,8 @@ const ListItem = ({ cat, item, qty, min, deleteItem }) => {
       <ListText start="true" bold="true">
         {item}
       </ListText>
-      <Counter value={qty} />
-      <Counter value={min} />
+      <Counter value={qty} qty item={item} />
+      <Counter value={min} item={item} />
       <ListText bold color={qty - min > 0 ? 'green' : 'red'}>
         {qty - min > 0 ? `+${qty - min}` : qty - min}
       </ListText>

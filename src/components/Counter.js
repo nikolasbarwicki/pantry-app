@@ -2,6 +2,14 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 
+import { connect } from 'react-redux';
+import {
+  quantityInc as quantityIncAction,
+  quantityDec as quantityDecAction,
+  minimumInc as minimumIncAction,
+  minimumDec as minimumDecAction,
+} from 'actions';
+
 const StyledWrapper = styled.div``;
 
 const StyledButton = styled.button`
@@ -37,19 +45,53 @@ const StyledInput = styled.input`
     `}
 `;
 
-const Counter = ({ value, transparent }) => {
+const Counter = ({
+  value,
+  transparent,
+  qty,
+  item,
+  quantityInc,
+  quantityDec,
+  minimumInc,
+  minimumDec,
+}) => {
   return (
     <StyledWrapper>
-      <StyledButton>-</StyledButton>
+      <StyledButton
+        onClick={qty ? () => quantityDec(item) : () => minimumDec(item)}
+      >
+        -
+      </StyledButton>
       <StyledInput type="number" value={value} transparent={transparent} />
-      <StyledButton>+</StyledButton>
+      <StyledButton
+        onClick={qty ? () => quantityInc(item) : () => minimumInc(item)}
+      >
+        +
+      </StyledButton>
     </StyledWrapper>
   );
 };
 
 Counter.propTypes = {
-  value: PropTypes.string.isRequired,
+  value: PropTypes.number.isRequired,
+  item: PropTypes.string.isRequired,
+  quantityInc: PropTypes.func.isRequired,
+  quantityDec: PropTypes.func.isRequired,
+  minimumInc: PropTypes.func.isRequired,
+  minimumDec: PropTypes.func.isRequired,
+  qty: PropTypes.number,
   transparent: PropTypes.bool.isRequired,
 };
 
-export default Counter;
+Counter.defaultProps = {
+  qty: null,
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  quantityInc: (item) => dispatch(quantityIncAction(item)),
+  quantityDec: (item) => dispatch(quantityDecAction(item)),
+  minimumInc: (item) => dispatch(minimumIncAction(item)),
+  minimumDec: (item) => dispatch(minimumDecAction(item)),
+});
+
+export default connect(null, mapDispatchToProps)(Counter);

@@ -16,6 +16,42 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         items: [...state.items.filter((el) => el.item !== action.payload)],
       };
+    case 'QTY_INC':
+      return {
+        ...state,
+        items: [
+          ...state.items.map((el) =>
+            el.item === action.payload ? { ...el, qty: el.qty + 1 } : el,
+          ),
+        ],
+      };
+    case 'QTY_DEC':
+      return {
+        ...state,
+        items: [
+          ...state.items.map((el) =>
+            el.item === action.payload ? { ...el, qty: el.qty - 1 } : el,
+          ),
+        ],
+      };
+    case 'MIN_INC':
+      return {
+        ...state,
+        items: [
+          ...state.items.map((el) =>
+            el.item === action.payload ? { ...el, min: el.min + 1 } : el,
+          ),
+        ],
+      };
+    case 'MIN_DEC':
+      return {
+        ...state,
+        items: [
+          ...state.items.map((el) =>
+            el.item === action.payload ? { ...el, min: el.min - 1 } : el,
+          ),
+        ],
+      };
 
     default:
       return state;
