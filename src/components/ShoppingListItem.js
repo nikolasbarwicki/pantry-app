@@ -5,6 +5,9 @@ import PropTypes from 'prop-types';
 
 import Icon from 'components/Icon';
 import tickIcon from 'assets/tick_icon.svg';
+
+import { connect } from 'react-redux';
+import { addPurchase as addPurchaseAction } from 'actions';
 import ButtonIcon from './ButtonIcon';
 
 const Wrapper = styled.div`
@@ -16,13 +19,13 @@ const Wrapper = styled.div`
   margin: 20px 0;
 `;
 
-const ShoppingListItem = ({ cat, item, buy }) => {
+const ShoppingListItem = ({ cat, item, buy, addPurchase }) => {
   return (
     <Wrapper>
       <Icon iconType={cat} />
       <ListText bold="true">{item}</ListText>
       <ListText bold="true">{-buy}</ListText>
-      <ButtonIcon icon={tickIcon} />
+      <ButtonIcon icon={tickIcon} onClick={() => addPurchase(item)} />
     </Wrapper>
   );
 };
@@ -31,6 +34,11 @@ ShoppingListItem.propTypes = {
   cat: PropTypes.string.isRequired,
   item: PropTypes.string.isRequired,
   buy: PropTypes.number.isRequired,
+  addPurchase: PropTypes.func.isRequired,
 };
 
-export default ShoppingListItem;
+const mapDispatchToProps = (dispatch) => ({
+  addPurchase: (item) => dispatch(addPurchaseAction(item)),
+});
+
+export default connect(null, mapDispatchToProps)(ShoppingListItem);

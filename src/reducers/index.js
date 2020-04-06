@@ -52,6 +52,15 @@ const rootReducer = (state = initialState, action) => {
           ),
         ],
       };
+    case 'ADD_PUR':
+      return {
+        ...state,
+        items: [
+          ...state.items.map((el) =>
+            el.item === action.payload ? { ...el, qty: el.min } : el,
+          ),
+        ],
+      };
 
     default:
       return state;

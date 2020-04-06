@@ -32,3 +32,10 @@ export const minimumDec = (item) => {
     payload: item,
   };
 };
+
+export const addPurchase = (item) => {
+  return {
+    type: 'ADD_PUR',
+    payload: item,
+  };
+};
