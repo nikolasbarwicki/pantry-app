@@ -16,6 +16,11 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         items: [...state.items.filter((el) => el.item !== action.payload)],
       };
+    case 'ADD_ITEM':
+      return {
+        ...state,
+        items: [...state.items, action.payload],
+      };
     case 'QTY_INC':
       return {
         ...state,

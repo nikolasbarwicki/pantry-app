@@ -11,11 +11,20 @@ const StyledInput = styled.input`
   justify-self: start;
   :focus {
     outline: none;
+    background-color: ${(props) => props.theme.paleblue};
   }
 `;
 
-const TextInput = () => {
-  return <StyledInput type="text" placeholder="add new item" />;
+const TextInput = ({ type, name, onChange, value, placeholder }) => {
+  return (
+    <StyledInput
+      type={type}
+      name={name}
+      onChange={onChange}
+      value={value}
+      placeholder={placeholder}
+    />
+  );
 };
 
 export default TextInput;

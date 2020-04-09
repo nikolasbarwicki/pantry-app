@@ -59,12 +59,14 @@ const Counter = ({
     <StyledWrapper>
       <StyledButton
         onClick={qty ? () => quantityDec(item) : () => minimumDec(item)}
+        type="button"
       >
         -
       </StyledButton>
       <StyledInput type="number" value={value} transparent={transparent} />
       <StyledButton
         onClick={qty ? () => quantityInc(item) : () => minimumInc(item)}
+        type="button"
       >
         +
       </StyledButton>

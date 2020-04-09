@@ -1,15 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useFormik } from 'formik';
 
-import ListText from 'components/ListText';
-import Counter from 'components/Counter';
+import { connect } from 'react-redux';
+import { addItem as addItemAction } from 'actions';
+
+import CounterNew from 'components/CounterNew';
 import ButtonIcon from 'components/ButtonIcon';
-import Dropdown from 'components/Dropdown';
+import StyledSelect from 'components/StyledSelect';
 import TextInput from 'components/TextInput';
 
 import addIcon from 'assets/add_icon.svg';
 
-const StyledWrapper = styled.div`
+const StyledWrapper = styled.form`
   background-color: none;
   margin: 20px;
   width: 1240px;
@@ -22,19 +25,44 @@ const StyledWrapper = styled.div`
   border-radius: 20px;
 `;
 
-const ListItem = () => {
+const ListItemNew = ({ addItem }) => {
+  const formik = useFormik({
+    initialValues: {
+      cat: 'bread',
+      item: '',
+      qty: 0,
+      min: 0,
+    },
+    onSubmit: (values) => {
+      addItem(values);
+      console.log(values);
+    },
+  });
+
   return (
-    <StyledWrapper>
-      <Dropdown />
-      <TextInput />
-      <Counter value={0} transparent />
-      <Counter value={0} transparent />
-      <ListText bold transparent>
-        +1
-      </ListText>
-      <ButtonIcon icon={addIcon} transparent />
+    <StyledWrapper onSubmit={formik.handleSubmit}>
+      <StyledSelect
+        name="cat"
+        value={formik.cat}
+        onChange={formik.handleChange}
+      />
+      <TextInput
+        type="text"
+        name="item"
+        onChange={formik.handleChange}
+        value={formik.values.item}
+        placeholder="add new item..."
+      />
+      <CounterNew type="text" name="qty" setFieldValue={formik.setFieldValue} />
+      <CounterNew type="text" name="min" setFieldValue={formik.setFieldValue} />
+      <div />
+      <ButtonIcon icon={addIcon} type="submit" transparent />
     </StyledWrapper>
   );
 };
 
-export default ListItem;
+const mapDispatchToProps = (dispatch) => ({
+  addItem: (item) => dispatch(addItemAction(item)),
+});
+
+export default connect(null, mapDispatchToProps)(ListItemNew);
