@@ -1,8 +1,10 @@
 # Pantry App
 
-Simple React app to manage your home pantry - [live demo](demolink)
+Simple React app to manage your home pantry
 
-![Root view](https://i.ibb.co/VBCG1fg/Annotation-2020-04-10-151511.png)
+<p align="center">
+  <img width="600" src="https://i.ibb.co/VBCG1fg/Annotation-2020-04-10-151511.png">
+</p>
 
 ## 📝General info
 
@@ -51,8 +53,8 @@ A few of the things you can do with Pantry App:
 
 ## 👁‍🗨Project status
 
-This project is currently in development - find out more in [To-do](##to-do) section.
+This project is currently in development - find out more in [To-do](#to-do) section.
 
 ## 📘License
 
-This project is licensed under the MIT License © [Nikolas Barwicki]([https://github.com/nikolasbarwicki](https://github.com/nikolasbarwicki)
+This project is licensed under the MIT License © [Nikolas Barwicki](https://github.com/nikolasbarwicki)
