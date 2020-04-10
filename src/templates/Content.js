@@ -18,7 +18,7 @@ const Content = ({ items }) => {
   return (
     <Wrapper>
       <Heading big bold margin="2rem">
-        Content
+        Inventory
       </Heading>
       {items.map((item) => (
         <InventoryItem
