@@ -18,11 +18,7 @@ const icons = {
 };
 
 const Icon = ({ iconType }) => {
-  return (
-    <>
-      <img src={icons[iconType]} alt="bread" />
-    </>
-  );
+  return <img src={icons[iconType]} alt={icons[iconType]} />;
 };
 
 Icon.propTypes = {

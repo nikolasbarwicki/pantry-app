@@ -2,10 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 
 import pantryAppLogo from 'assets/pantryapp_logo.svg';
-import ShoppingList from 'components/ShoppingList';
-import Categories from 'components/Categories';
+import ShoppingList from 'components/ShoppingList/ShoppingList';
+import Categories from 'components/Categories/Categories';
 
-const StyledWrapper = styled.div`
+const Wrapper = styled.div`
   display: grid;
   padding: 50px;
   grid-gap: 50px;
@@ -14,11 +14,11 @@ const StyledWrapper = styled.div`
 
 const Sidebar = () => {
   return (
-    <StyledWrapper>
+    <Wrapper>
       <img src={pantryAppLogo} alt="Pantry App Logo" />
       <ShoppingList />
       <Categories />
-    </StyledWrapper>
+    </Wrapper>
   );
 };
 

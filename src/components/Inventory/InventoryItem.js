@@ -2,16 +2,16 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import ListText from 'components/ListText';
-import Counter from 'components/Counter';
+import Paragraph from 'components/Paragraph';
+import Counter from 'components/Inventory/Counter';
 import Icon from 'components/Icon';
-import ButtonIcon from 'components/ButtonIcon';
+import Button from 'components/Button';
 import { connect } from 'react-redux';
 import { deleteItem as deleteItemAction } from 'actions';
 
 import deleteIcon from 'assets/delete_icon.svg';
 
-const StyledWrapper = styled.div`
+const Wrapper = styled.div`
   background-color: white;
   margin: 20px;
   width: 1240px;
@@ -37,19 +37,19 @@ const categories = {
 
 const ListItem = ({ cat, item, qty, min, deleteItem }) => {
   return (
-    <StyledWrapper>
+    <Wrapper>
       <Icon iconType={cat} />
-      <ListText start="true">{categories[cat]}</ListText>
-      <ListText start="true" bold="true">
+      <Paragraph start="true">{categories[cat]}</Paragraph>
+      <Paragraph start="true" bold="true">
         {item}
-      </ListText>
+      </Paragraph>
       <Counter value={qty} qty item={item} />
       <Counter value={min} item={item} />
-      <ListText bold color={qty - min > 0 ? 'green' : 'red'}>
+      <Paragraph bold color={qty - min > 0 ? 'green' : 'red'}>
         {qty - min > 0 ? `+${qty - min}` : qty - min}
-      </ListText>
-      <ButtonIcon icon={deleteIcon} onClick={() => deleteItem(item)} />
-    </StyledWrapper>
+      </Paragraph>
+      <Button icon={deleteIcon} onClick={() => deleteItem(item)} />
+    </Wrapper>
   );
 };
 

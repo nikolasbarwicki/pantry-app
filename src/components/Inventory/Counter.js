@@ -10,8 +10,6 @@ import {
   minimumDec as minimumDecAction,
 } from 'actions';
 
-const StyledWrapper = styled.div``;
-
 const StyledButton = styled.button`
   font-family: inherit;
   color: ${(props) => props.theme.gray};
@@ -56,7 +54,7 @@ const Counter = ({
   minimumDec,
 }) => {
   return (
-    <StyledWrapper>
+    <div>
       <StyledButton
         onClick={qty ? () => quantityDec(item) : () => minimumDec(item)}
         type="button"
@@ -70,7 +68,7 @@ const Counter = ({
       >
         +
       </StyledButton>
-    </StyledWrapper>
+    </div>
   );
 };
 

@@ -2,12 +2,12 @@ import React from 'react';
 import GlobalStyle from 'theme/GlobalStyle';
 import Theme from 'theme/Theme';
 import styled from 'styled-components';
-import Inventory from 'components/Inventory';
-import Sidebar from 'components/Sidebar';
+import Content from 'templates/Content';
+import Sidebar from 'templates/Sidebar';
 import { Provider } from 'react-redux';
 import store from 'store';
 
-const MainWrapper = styled.div`
+const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 25% 75%;
 `;
@@ -16,11 +16,11 @@ const Root = () => {
   return (
     <Provider store={store}>
       <Theme>
-        <MainWrapper>
+        <Wrapper>
           <GlobalStyle />
           <Sidebar />
-          <Inventory />
-        </MainWrapper>
+          <Content />
+        </Wrapper>
       </Theme>
     </Provider>
   );

@@ -1,11 +1,7 @@
 import styled, { css } from 'styled-components';
 
-const ListText = styled.p`
-  ${({ bold }) =>
-    bold &&
-    css`
-      font-weight: ${(props) => props.theme.bold};
-    `}
+const Paragraph = styled.p`
+    font-weight: ${({ theme, bold }) => (bold ? theme.bold : theme.regular)};
 
   ${({ start }) =>
     start &&
@@ -23,4 +19,4 @@ const ListText = styled.p`
     color: ${(props) => props.theme[props.color]}
 `;
 
-export default ListText;
+export default Paragraph;

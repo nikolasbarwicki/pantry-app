@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 import Icon from 'components/Icon';
-import ListText from 'components/ListText';
+import Paragraph from 'components/Paragraph';
 
 const Wrapper = styled.div`
   height: 35px;
@@ -14,31 +14,30 @@ const Wrapper = styled.div`
   margin: 10px 0;
 `;
 
-const GrayCircle = styled.div`
+const Value = styled.div`
   border-radius: 50%;
   width: 25px;
   height: 25px;
   padding: 3px;
-
   background: ${(props) => props.theme.gray};
   color: white;
   text-align: center;
 `;
 
-const CategoriesListItem = ({ cat, name, value = 0 }) => {
+const CategoriesItem = ({ cat, name, value = 0 }) => {
   return (
     <Wrapper>
       <Icon iconType={cat} />
-      <ListText>{name}</ListText>
-      <GrayCircle>{value}</GrayCircle>
+      <Paragraph>{name}</Paragraph>
+      <Value>{value}</Value>
     </Wrapper>
   );
 };
 
-CategoriesListItem.propTypes = {
+CategoriesItem.propTypes = {
   cat: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   value: PropTypes.number.isRequired,
 };
 
-export default CategoriesListItem;
+export default CategoriesItem;

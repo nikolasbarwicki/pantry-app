@@ -1,9 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const StyledWrapper = styled.div``;
-
-const StyledButton = styled.button`
+const Button = styled.button`
   font-family: inherit;
   color: ${(props) => props.theme.gray};
   background: none;
@@ -16,7 +14,7 @@ const StyledButton = styled.button`
   font-size: ${(props) => props.theme.fontsize.m};
 `;
 
-const StyledInput = styled.input`
+const Input = styled.input`
   ::-webkit-inner-spin-button,
   ::-webkit-outer-spin-button {
     -webkit-appearance: none;
@@ -31,7 +29,7 @@ const StyledInput = styled.input`
   color: ${(props) => props.theme.gray};
 `;
 
-class CounterNew extends React.Component {
+class Counter extends React.Component {
   state = { value: 0 };
 
   decrement = () => {
@@ -56,17 +54,17 @@ class CounterNew extends React.Component {
     const { value } = this.state;
 
     return (
-      <StyledWrapper>
-        <StyledButton onClick={() => this.decrement()} type="button">
+      <div>
+        <Button onClick={() => this.decrement()} type="button">
           -
-        </StyledButton>
-        <StyledInput value={value} type="text" />
-        <StyledButton onClick={() => this.increment()} type="button">
+        </Button>
+        <Input value={value} type="text" />
+        <Button onClick={() => this.increment()} type="button">
           +
-        </StyledButton>
-      </StyledWrapper>
+        </Button>
+      </div>
     );
   }
 }
 
-export default CounterNew;
+export default Counter;

@@ -1,15 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useFormik } from 'formik';
-
 import { connect } from 'react-redux';
 import { addItem as addItemAction } from 'actions';
 
-import CounterNew from 'components/CounterNew';
-import ButtonIcon from 'components/ButtonIcon';
-import StyledSelect from 'components/StyledSelect';
-import TextInput from 'components/TextInput';
-
+import Counter from 'components/Inventory/Form/Counter';
+import Button from 'components/Button';
+import Select from 'components/Inventory/Form/Select';
+import Input from 'components/Inventory/Form/Input';
 import addIcon from 'assets/add_icon.svg';
 
 const StyledWrapper = styled.form`
@@ -35,28 +33,22 @@ const ListItemNew = ({ addItem }) => {
     },
     onSubmit: (values) => {
       addItem(values);
-      console.log(values);
     },
   });
 
   return (
     <StyledWrapper onSubmit={formik.handleSubmit}>
-      <StyledSelect
-        name="cat"
-        value={formik.cat}
-        onChange={formik.handleChange}
-      />
-      <TextInput
+      <Select name="cat" value={formik.cat} onChange={formik.handleChange} />
+      <Input
         type="text"
         name="item"
         onChange={formik.handleChange}
         value={formik.values.item}
         placeholder="add new item..."
       />
-      <CounterNew type="text" name="qty" setFieldValue={formik.setFieldValue} />
-      <CounterNew type="text" name="min" setFieldValue={formik.setFieldValue} />
-      <div />
-      <ButtonIcon icon={addIcon} type="submit" transparent />
+      <Counter type="text" name="qty" setFieldValue={formik.setFieldValue} />
+      <Counter type="text" name="min" setFieldValue={formik.setFieldValue} />
+      <Button icon={addIcon} type="submit" transparent />
     </StyledWrapper>
   );
 };

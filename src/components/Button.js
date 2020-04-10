@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-const ButtonIcon = styled.button`
+const Button = styled.button`
   background-color: #fff;
   display: block;
   width: 25px;
@@ -20,4 +20,4 @@ const ButtonIcon = styled.button`
     `}
 `;
 
-export default ButtonIcon;
+export default Button;

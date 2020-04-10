@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import ListText from 'components/ListText';
+import Paragraph from 'components/Paragraph';
 import PropTypes from 'prop-types';
 
 import Icon from 'components/Icon';
@@ -8,7 +8,7 @@ import tickIcon from 'assets/tick_icon.svg';
 
 import { connect } from 'react-redux';
 import { addPurchase as addPurchaseAction } from 'actions';
-import ButtonIcon from './ButtonIcon';
+import Button from '../Button';
 
 const Wrapper = styled.div`
   height: 35px;
@@ -23,9 +23,9 @@ const ShoppingListItem = ({ cat, item, buy, addPurchase }) => {
   return (
     <Wrapper>
       <Icon iconType={cat} />
-      <ListText bold="true">{item}</ListText>
-      <ListText bold="true">{-buy}</ListText>
-      <ButtonIcon icon={tickIcon} onClick={() => addPurchase(item)} />
+      <Paragraph bold>{item}</Paragraph>
+      <Paragraph bold>{-buy}</Paragraph>
+      <Button icon={tickIcon} onClick={() => addPurchase(item)} />
     </Wrapper>
   );
 };

@@ -15,7 +15,7 @@ const StyledInput = styled.input`
   }
 `;
 
-const TextInput = ({ type, name, onChange, value, placeholder }) => {
+const Input = ({ type, name, onChange, value, placeholder }) => {
   return (
     <StyledInput
       type={type}
@@ -27,4 +27,4 @@ const TextInput = ({ type, name, onChange, value, placeholder }) => {
   );
 };
 
-export default TextInput;
+export default Input;

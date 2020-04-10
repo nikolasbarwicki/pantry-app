@@ -1,14 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-
-import CategoriesListItem from 'components/CategoriesListItem';
-
-const StyledHeading = styled.h2`
-  font-size: 2.4rem;
-  margin: 0;
-`;
+import CategoriesItem from 'components/Categories/CategoriesItem';
+import Heading from 'components/Heading';
 
 const Categories = ({ items }) => {
   const categories = [
@@ -22,9 +16,9 @@ const Categories = ({ items }) => {
 
   return (
     <div>
-      <StyledHeading>Categories</StyledHeading>
+      <Heading>Categories</Heading>
       {categories.map((item) => (
-        <CategoriesListItem
+        <CategoriesItem
           cat={item.cat}
           name={item.name}
           value={items.filter((el) => el.cat === item.cat).length}
