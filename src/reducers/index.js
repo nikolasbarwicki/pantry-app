@@ -1,3 +1,13 @@
+import {
+  DELETE_ITEM,
+  ADD_ITEM,
+  QUANTITY_INCREASE,
+  QUANTITY_DECREASE,
+  MINIMUM_INCREASE,
+  MINIMUM_DECREASE,
+  ADD_PURCHASE,
+} from 'actions/types';
+
 const initialState = {
   items: [
     { cat: 'bread', item: 'Bread', qty: 2, min: 1 },
@@ -11,17 +21,17 @@ const initialState = {
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'DEL_ITEM':
+    case DELETE_ITEM:
       return {
         ...state,
         items: [...state.items.filter((el) => el.item !== action.payload)],
       };
-    case 'ADD_ITEM':
+    case ADD_ITEM:
       return {
         ...state,
         items: [...state.items, action.payload],
       };
-    case 'QTY_INC':
+    case QUANTITY_INCREASE:
       return {
         ...state,
         items: [
@@ -30,7 +40,7 @@ const rootReducer = (state = initialState, action) => {
           ),
         ],
       };
-    case 'QTY_DEC':
+    case QUANTITY_DECREASE:
       return {
         ...state,
         items: [
@@ -39,7 +49,7 @@ const rootReducer = (state = initialState, action) => {
           ),
         ],
       };
-    case 'MIN_INC':
+    case MINIMUM_INCREASE:
       return {
         ...state,
         items: [
@@ -48,7 +58,7 @@ const rootReducer = (state = initialState, action) => {
           ),
         ],
       };
-    case 'MIN_DEC':
+    case MINIMUM_DECREASE:
       return {
         ...state,
         items: [
@@ -57,7 +67,7 @@ const rootReducer = (state = initialState, action) => {
           ),
         ],
       };
-    case 'ADD_PUR':
+    case ADD_PURCHASE:
       return {
         ...state,
         items: [
