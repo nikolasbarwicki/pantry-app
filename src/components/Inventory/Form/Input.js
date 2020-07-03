@@ -18,6 +18,7 @@ const StyledInput = styled.input`
 const Input = ({ type, name, onChange, value, placeholder }) => {
   return (
     <StyledInput
+      autoComplete="off"
       type={type}
       name={name}
       onChange={onChange}

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useFormik } from 'formik';
+import { Formik, Field } from 'formik';
 import { connect } from 'react-redux';
 import { addItem as addItemAction } from 'actions';
 
@@ -23,35 +23,33 @@ const StyledWrapper = styled.form`
   border-radius: 20px;
 `;
 
-const ListItemNew = ({ addItem }) => {
-  const formik = useFormik({
-    initialValues: {
-      cat: 'bread',
-      item: '',
-      qty: 0,
-      min: 0,
-    },
-    onSubmit: (values) => {
+const ListItemNew = ({ addItem }) => (
+  <Formik
+    initialValues={{ cat: 'bread', item: '', qty: 0, min: 0 }}
+    onSubmit={(values, { resetForm }) => {
       addItem(values);
-    },
-  });
+      resetForm({});
+    }}
+  >
+    {(props) => (
+      <StyledWrapper onSubmit={props.handleSubmit} autoComplete="off">
+        <Select name="cat" value={props.cat} onChange={props.handleChange} />
+        <Input
+          type="text"
+          name="item"
+          onChange={props.handleChange}
+          value={props.values.item}
+          placeholder="add new item..."
+        />
 
-  return (
-    <StyledWrapper onSubmit={formik.handleSubmit}>
-      <Select name="cat" value={formik.cat} onChange={formik.handleChange} />
-      <Input
-        type="text"
-        name="item"
-        onChange={formik.handleChange}
-        value={formik.values.item}
-        placeholder="add new item..."
-      />
-      <Counter type="text" name="qty" setFieldValue={formik.setFieldValue} />
-      <Counter type="text" name="min" setFieldValue={formik.setFieldValue} />
-      <Button icon={addIcon} type="submit" transparent />
-    </StyledWrapper>
-  );
-};
+        <Field name="qty" component={Counter} />
+        <Field name="min" component={Counter} />
+        <br />
+        <Button icon={addIcon} type="submit" transparent />
+      </StyledWrapper>
+    )}
+  </Formik>
+);
 
 const mapDispatchToProps = (dispatch) => ({
   addItem: (item) => dispatch(addItemAction(item)),

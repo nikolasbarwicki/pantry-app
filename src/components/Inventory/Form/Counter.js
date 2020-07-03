@@ -29,42 +29,26 @@ const Input = styled.input`
   color: ${(props) => props.theme.gray};
 `;
 
-class Counter extends React.Component {
-  state = { value: 0 };
-
-  decrement = () => {
-    this.setState(
-      (prevState) => ({
-        value: prevState.value - 1,
-      }),
-      () => this.props.setFieldValue(this.props.name, this.state.value),
-    );
-  };
-
-  increment = () => {
-    this.setState(
-      (prevState) => ({
-        value: prevState.value + 1,
-      }),
-      () => this.props.setFieldValue(this.props.name, this.state.value),
-    );
-  };
-
-  render() {
-    const { value } = this.state;
-
-    return (
-      <div>
-        <Button onClick={() => this.decrement()} type="button">
-          -
-        </Button>
-        <Input value={value} type="text" />
-        <Button onClick={() => this.increment()} type="button">
-          +
-        </Button>
-      </div>
-    );
-  }
-}
+const Counter = ({ field, form }) => (
+  <div>
+    <Button
+      onClick={() =>
+        form.setFieldValue(field.name, form.values[field.name] - 1)
+      }
+      type="button"
+    >
+      -
+    </Button>
+    <Input value={form.values[field.name]} type="text" />
+    <Button
+      onClick={() =>
+        form.setFieldValue(field.name, form.values[field.name] + 1)
+      }
+      type="button"
+    >
+      +
+    </Button>
+  </div>
+);
 
 export default Counter;
