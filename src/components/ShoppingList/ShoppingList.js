@@ -37,12 +37,12 @@ const ShoppingList = ({ items }) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return state;
-};
-
 ShoppingList.propTypes = {
   items: PropTypes.string.isRequired,
+};
+
+const mapStateToProps = (state) => {
+  return { items: state.items };
 };
 
 export default connect(mapStateToProps)(ShoppingList);

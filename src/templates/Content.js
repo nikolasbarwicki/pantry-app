@@ -34,7 +34,7 @@ const Content = ({ items }) => {
 };
 
 const mapStateToProps = (state) => {
-  return state;
+  return { items: state.items };
 };
 
 Content.propTypes = {
