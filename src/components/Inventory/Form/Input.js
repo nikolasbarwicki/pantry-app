@@ -7,7 +7,6 @@ const StyledInput = styled.input`
   color: #000;
   background-color: ${(props) => props.theme.paleblue};
   border: none;
-  padding-left: 25px;
   justify-self: start;
   :focus {
     outline: none;

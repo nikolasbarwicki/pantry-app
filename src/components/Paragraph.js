@@ -6,7 +6,6 @@ const Paragraph = styled.p`
   ${({ start }) =>
     start &&
     css`
-      padding-left: 25px;
       justify-self: start;
     `}
 

@@ -14,12 +14,15 @@ import deleteIcon from 'assets/delete_icon.svg';
 const Wrapper = styled.div`
   background-color: white;
   margin: 20px;
-  width: 1240px;
+  width: 100%;
   height: 66px;
   display: grid;
   align-items: center;
   justify-items: center;
-  grid-template-columns: 70px 230px 340px repeat(4, 1fr);
+  grid-template-columns: 60px minmax(150px, 180px) minmax(150px, 220px) repeat(
+      4,
+      1fr
+    );
   -webkit-box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.05);
   -moz-box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.05);
   box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.05);
@@ -39,8 +42,8 @@ const ListItem = ({ cat, item, qty, min, deleteItem }) => {
   return (
     <Wrapper>
       <Icon iconType={cat} />
-      <Paragraph start="true">{categories[cat]}</Paragraph>
-      <Paragraph start="true" bold="true">
+      <Paragraph start>{categories[cat]}</Paragraph>
+      <Paragraph start bold>
         {item}
       </Paragraph>
       <Counter value={qty} qty item={item} />

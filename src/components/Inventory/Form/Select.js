@@ -6,11 +6,10 @@ const StyledSelect = styled.select`
   background-color: ${(props) => props.theme.paleblue};
   font-family: 'Montserrat', sans-serif;
   font-size: 1.6rem;
-  width: 200px;
+  width: 80%;
   :focus {
     outline: none;
   }
-  margin-left: 83px;
   justify-self: start;
   color: ${(props) => props.theme.gray};
 `;
