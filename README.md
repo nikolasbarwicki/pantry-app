@@ -2,6 +2,10 @@
 
 Simple React app to manage your home pantry
 
+### Live demo
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/34b26a26-aca2-4293-a031-d3418b88ef8f/deploy-status)](https://nifty-shirley-c5c6ed.netlify.app/)
+
 <p align="center">
   <img width="600" src="https://i.ibb.co/VBCG1fg/Annotation-2020-04-10-151511.png">
 </p>
